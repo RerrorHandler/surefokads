@@ -1,0 +1,67 @@
+{% extends 'posts/base.html' %}
+{% load static %}
+{% block title %}Подать объявление{% endblock %}
+{% block css %}
+<link href="{% static 'css/posts/post_add.css' %}" rel="stylesheet" />{% endblock %}
+{% block content %}
+<div class="post-add_wrapper" style="margin-top: 5%;">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}  
+        <div class="form-group">
+            <label for="title">{{ form.title.label }}</label>
+            {{ form.title }}
+            {% if form.title.errors %}
+                <div class="invalid-feedback">
+                    {% for error in form.title.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="description">{{ form.description.label }}</label>
+            {{ form.description }}
+            {% if form.description.errors %}
+                <div class="invalid-feedback">
+                    {% for error in form.description.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="cost">{{ form.cost.label }}</label>
+            {{ form.cost }}
+            {% if form.cost.errors %}
+                <div class="invalid-feedback">
+                    {% for error in form.cost.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="image">{{ form.image.label }}</label>
+            {{ form.image }}
+            {% if form.image.errors %}
+                <div class="invalid-feedback">
+                    {% for error in form.image.errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>
+<footer class=" text-center text-lg-start container " style="position: absolute; bottom: 1;">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+      <a class="text-body" href="">При возникновении вопросов для связи с нами можете написать в telegram: s_dkvaa
+        почта: sdaurenbekova4@gmail.com</a>
+    </div>
+  </footer>
+{% endblock %}

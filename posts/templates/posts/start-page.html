@@ -1,0 +1,19 @@
+{% extends 'posts/base.html' %} 
+{% load static %}
+{% block title %}Сурифок. Объявления для студент{% endblock %} 
+{% block css %}<link href="{% static 'css/posts/start-page.css' %}" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+{% endblock %} 
+{% block content %}
+<div class="start-page_wrapper" style="height: 80%;">
+  <div class="text-center" style="margin: 12px 0 60px;">
+    <div class="start-page_text">Объявления для студентов из Алматы!</div>
+  </div>
+  <div class="">
+    <a href="posts/">
+      <button type="button" class="bg-gray-400 rounded-xl p-4">Объявления</button>
+    </a>
+  </div>
+  </a>
+</div>
+{% endblock %}
